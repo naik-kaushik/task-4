@@ -1,20 +1,21 @@
 import "./Login.css";
 import imgUrl from "../assets/logo.png";
+import { useState } from "react";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   function validateForm() {
     // Email validation
-    var usernameInput = document.getElementById("username");
     var emailRegex = /^\S+@\S+\.\S+$/;
-    if (!emailRegex.test(usernameInput.value)) {
+    if (!emailRegex.test(email)) {
       alert("Please enter a valid email address");
       return;
     }
 
     // Password validation
-    var passwordInput = document.getElementById("password");
     var passwordRegex = /^(?=.*?[A-Z])(?=.*?\d)(?=.*?@)[a-zA-Z0-9@]+$/;
-    if (!passwordRegex.test(passwordInput.value)) {
+    if (!passwordRegex.test(password)) {
       alert(
         "Password must contain an uppercase letter, a number, and should not contain special characters other than @"
       );
@@ -22,10 +23,14 @@ const Login = () => {
     }
 
     // If both validations pass, you can proceed with further actions (e.g., form submission)
-    if (passwordInput.value == "SmartServTest@123") {
-      console.log("Redirect");
+
+    if (password == "SmartServTest@123") {
+      onLogin(true);
+      alert("Login successful!");
+      window.location.href = "/dashboard";
+    } else {
+      alert("Wrong password!");
     }
-    alert("Login successful!");
   }
 
   function forgotAction() {
@@ -52,6 +57,8 @@ const Login = () => {
               type="text"
               id="username"
               name="username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Username"
               required=""
             />
@@ -60,6 +67,8 @@ const Login = () => {
               type="password"
               id="password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required=""
             />
