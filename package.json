@@ -1,6 +1,7 @@
 {
   "name": "dashboard-login",
   "private": true,
+  "homepage": "https://naik-kaushik.github.io/task-4/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
