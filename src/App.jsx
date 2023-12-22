@@ -12,9 +12,23 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<Login onLogin={setAuthenticated} />} />
-          <Route element={<ProtectedRoute isAuthenticated={authenticated} props={setAuthenticated} />} >
-            <Route element={<Dashboard onLogout={setAuthenticated}/>} path="/dashboard" exact />
+          <Route
+            path="/task-4"
+            element={<Login onLogin={setAuthenticated} />}
+          />
+          <Route
+            element={
+              <ProtectedRoute
+                isAuthenticated={authenticated}
+                props={setAuthenticated}
+              />
+            }
+          >
+            <Route
+              element={<Dashboard onLogout={setAuthenticated} />}
+              path="/task-4/dashboard"
+              exact
+            />
           </Route>
         </Routes>
       </Router>
