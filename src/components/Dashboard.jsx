@@ -5,7 +5,7 @@ const Dashboard = () => {
     <div className="w-full px-4 text-black">
       <button
         onClick={() => {
-          window.location.href = "/";
+          window.location.href = "/task-4";
         }}
         className="text-lime-500"
       >
