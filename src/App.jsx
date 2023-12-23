@@ -12,11 +12,11 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path="/task-4"
+            path="/task-4/"
             element={<Login onLogin={setAuthenticated} />}
           />
           <Route
-            path="/task-4/dashboard"
+            path="/task-4/dashboard/"
             element={<Dashboard onLogout={setAuthenticated} />}
           />
         </Routes>

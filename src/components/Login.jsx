@@ -27,7 +27,7 @@ const Login = ({ onLogin }) => {
     if (password == "SmartServTest@123") {
       onLogin(true);
       alert("Login successful!");
-      window.location.href = "/task-4/dashboard";
+      window.location.href = "/task-4/dashboard/";
     } else {
       alert("Wrong password!");
     }
