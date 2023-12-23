@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
 import { useState } from "react";
 
 function App() {
@@ -17,19 +16,9 @@ function App() {
             element={<Login onLogin={setAuthenticated} />}
           />
           <Route
-            element={
-              <ProtectedRoute
-                isAuthenticated={authenticated}
-                props={setAuthenticated}
-              />
-            }
-          >
-            <Route
-              element={<Dashboard onLogout={setAuthenticated} />}
-              path="/task-4/dashboard"
-              exact
-            />
-          </Route>
+            path="/task-4/dashboard"
+            element={<Dashboard onLogout={setAuthenticated} />}
+          />
         </Routes>
       </Router>
     </div>
